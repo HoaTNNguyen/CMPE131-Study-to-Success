@@ -1,0 +1,1794 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.0">
+    
+    
+      
+        <title>routes.py - Study2Success</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ad626c1e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.9204c3b2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../css/mkdocstrings.css">
+    
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"..":".."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#routespy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Study2Success" class="md-header__button md-logo" aria-label="Study2Success" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Study2Success
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              routes.py
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Study2Success" class="md-nav__button md-logo" aria-label="Study2Success" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Study2Success
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Overview & Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Specification.html" class="md-nav__link">
+        Product Specifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Code Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Code Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="forms.html" class="md-nav__link">
+        forms.py
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mdparser.html" class="md-nav__link">
+        mdparser.py
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="models.html" class="md-nav__link">
+        models.py
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="models_enum.html" class="md-nav__link">
+        models_enum.py
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="models_methods.html" class="md-nav__link">
+        models_methods.py
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          routes.py
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="routes.html" class="md-nav__link md-nav__link--active">
+        routes.py
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes" class="md-nav__link">
+    myapp.routes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.addTodo" class="md-nav__link">
+    addTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.add_flashcard" class="md-nav__link">
+    add_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.add_friend_userid_provided" class="md-nav__link">
+    add_friend_userid_provided()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.deleteTodo" class="md-nav__link">
+    deleteTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.flashcards_sharing" class="md-nav__link">
+    flashcards_sharing()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.flashcards_sharing_add_to_myflashcards" class="md-nav__link">
+    flashcards_sharing_add_to_myflashcards()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.flashcards_sharing_cancel_sharing" class="md-nav__link">
+    flashcards_sharing_cancel_sharing()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.home" class="md-nav__link">
+    home()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.import_flashcard" class="md-nav__link">
+    import_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.learn_flashcard" class="md-nav__link">
+    learn_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.log" class="md-nav__link">
+    log()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.login" class="md-nav__link">
+    login()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.logout" class="md-nav__link">
+    logout()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.myTodo" class="md-nav__link">
+    myTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.page_not_found" class="md-nav__link">
+    page_not_found()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.remove_flashcard" class="md-nav__link">
+    remove_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.remove_friend_userid_provided" class="md-nav__link">
+    remove_friend_userid_provided()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.render" class="md-nav__link">
+    render()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.share_flashcard" class="md-nav__link">
+    share_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.show_flashcard" class="md-nav__link">
+    show_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.show_friends" class="md-nav__link">
+    show_friends()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.signup" class="md-nav__link">
+    signup()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.tomato" class="md-nav__link">
+    tomato()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.updateTodo" class="md-nav__link">
+    updateTodo()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Flashcards
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Flashcards" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Flashcards
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flashcards/MarkdownFlashcard.html" class="md-nav__link">
+        Markdown Flashcards
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes" class="md-nav__link">
+    myapp.routes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.addTodo" class="md-nav__link">
+    addTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.add_flashcard" class="md-nav__link">
+    add_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.add_friend_userid_provided" class="md-nav__link">
+    add_friend_userid_provided()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.deleteTodo" class="md-nav__link">
+    deleteTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.flashcards_sharing" class="md-nav__link">
+    flashcards_sharing()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.flashcards_sharing_add_to_myflashcards" class="md-nav__link">
+    flashcards_sharing_add_to_myflashcards()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.flashcards_sharing_cancel_sharing" class="md-nav__link">
+    flashcards_sharing_cancel_sharing()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.home" class="md-nav__link">
+    home()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.import_flashcard" class="md-nav__link">
+    import_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.learn_flashcard" class="md-nav__link">
+    learn_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.log" class="md-nav__link">
+    log()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.login" class="md-nav__link">
+    login()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.logout" class="md-nav__link">
+    logout()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.myTodo" class="md-nav__link">
+    myTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.page_not_found" class="md-nav__link">
+    page_not_found()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.remove_flashcard" class="md-nav__link">
+    remove_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.remove_friend_userid_provided" class="md-nav__link">
+    remove_friend_userid_provided()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.render" class="md-nav__link">
+    render()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.share_flashcard" class="md-nav__link">
+    share_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.show_flashcard" class="md-nav__link">
+    show_flashcard()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.show_friends" class="md-nav__link">
+    show_friends()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.signup" class="md-nav__link">
+    signup()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.tomato" class="md-nav__link">
+    tomato()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.updateTodo" class="md-nav__link">
+    updateTodo()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="routespy">routes.py</h1>
+
+
+  <div class="doc doc-object doc-module">
+
+<a id="myapp.routes"></a>
+    <div class="doc doc-contents first">
+
+      <p>This module holds all the flask routes of our app (all URL paths) 
+and incharge of the frontend for rendering html templates.</p>
+<p>The standarn convention of defining a route here is:</p>
+<pre><code class="language-python">@myapp_obj.route(&quot;/my-route&quot;)
+def my_route():
+    # Code here
+    return render_template(&quot;my_route.html&quot;)
+</code></pre>
+<p>Or we could redirect to an existing route using:</p>
+<pre><code class="language-python">@myapp_obj.route(&quot;/my-route1&quot;)
+def my_route1():
+    # Code here
+    return redirect(url_for(&quot;my_route&quot;))
+</code></pre>
+<p>Detailed flask documentation can be found <a href="https://flask.palletsprojects.com/en/2.0.x/api/">here</a>.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.addTodo" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">addTodo</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Add ToDo item into ToDo list, then redirect back to show ToDo list</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/addTodo&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">addTodo</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Add ToDo item into ToDo list, then redirect back to show ToDo list&quot;&quot;&quot;</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+    <span class="n">new_todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">complete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_todo</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;myTodo&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.add_flashcard" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_flashcard</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Add flashcard page route, allow user to use FlashCardForm to add a new flashcard</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/add-flashcard&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">add_flashcard</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Add flashcard page route, allow user to use FlashCardForm to add a new flashcard&quot;&quot;&quot;</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">FlashCardForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">card</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="p">(</span><span class="n">front</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">front</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">back</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">back</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">learned</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">_get_current_object</span><span class="p">())</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Flashcard has been created&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;add_flashcard&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;/add-flashcard.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.add_friend_userid_provided" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_friend_userid_provided</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for handling an add friend request, this will redirect back to MyFriends page</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/add-friend/&lt;int:user_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">add_friend_userid_provided</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A route for handling an add friend request, this will redirect back to MyFriends page&quot;&quot;&quot;</span>
+    <span class="c1"># Abort if adding self as friend</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Cannot add yourself as friend&quot;</span><span class="p">)</span>
+    <span class="n">status</span><span class="p">,</span> <span class="n">friend_record</span> <span class="o">=</span> <span class="n">get_friend_status</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">user_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span>
+        <span class="c1"># Already a friend, do nothing</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-sent-request&#39;</span><span class="p">:</span>
+        <span class="c1"># Current user sent a request, do nothing</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Friend request already sent to &quot;</span><span class="si">{</span><span class="n">friend_record</span><span class="o">.</span><span class="n">user2</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-to-approve&#39;</span><span class="p">:</span>
+        <span class="c1"># Other user sent the request, approve (Change status from pending to approved)</span>
+        <span class="n">friend_record</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">FriendStatusEnum</span><span class="o">.</span><span class="n">FRIEND</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">friend_record</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Approved friend request from &quot;</span><span class="si">{</span><span class="n">friend_record</span><span class="o">.</span><span class="n">user1</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;neutral&#39;</span><span class="p">:</span>
+        <span class="c1"># No friendship record found, send friend request</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+        <span class="n">friend</span> <span class="o">=</span> <span class="n">Friend</span><span class="p">(</span><span class="n">user1_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">user2_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">FriendStatusEnum</span><span class="o">.</span><span class="n">PENDING</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">friend</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sent friend request to &quot;</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Unknown status </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_friends&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.deleteTodo" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">deleteTodo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Remove ToDo item from ToDo list, then redirect back to show ToDo list</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/deleteTodo/&lt;int:todo_id&gt;&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">deleteTodo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove ToDo item from ToDo list, then redirect back to show ToDo list&quot;&quot;&quot;</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">todo_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">todo</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;myTodo&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.flashcards_sharing" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">flashcards_sharing</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for viewing sharing status of flashcards (both shared to others and others shared to me)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/flashcards-sharing&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">flashcards_sharing</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;A route for viewing sharing status of flashcards (both shared to others and others shared to me)&quot;&quot;&quot;</span>
+    <span class="n">owner_flashcards</span> <span class="o">=</span> <span class="n">SharedFlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">owner_user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">target_flashcards</span> <span class="o">=</span> <span class="n">SharedFlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">target_user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;flashcards-sharing.html&quot;</span><span class="p">,</span> <span class="n">owner_flashcards</span><span class="o">=</span><span class="n">owner_flashcards</span><span class="p">,</span> <span class="n">target_flashcards</span><span class="o">=</span><span class="n">target_flashcards</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.flashcards_sharing_add_to_myflashcards" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">flashcards_sharing_add_to_myflashcards</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for adding shared flashcard that other user shared into My FlashCards</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/flashcards-sharing/add-to-myflashcards/&lt;int:sharing_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">flashcards_sharing_add_to_myflashcards</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A route for adding shared flashcard that other user shared into My FlashCards&quot;&quot;&quot;</span>
+    <span class="n">sharing</span> <span class="o">=</span> <span class="n">SharedFlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">!=</span> <span class="n">sharing</span><span class="o">.</span><span class="n">owner_user_id</span> <span class="ow">and</span>\
+        <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">!=</span> <span class="n">sharing</span><span class="o">.</span><span class="n">target_user_id</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Invalid permission&#39;</span><span class="p">)</span>
+    <span class="n">card</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="p">(</span><span class="n">front</span><span class="o">=</span><span class="n">sharing</span><span class="o">.</span><span class="n">flashcard</span><span class="o">.</span><span class="n">front</span><span class="p">,</span> <span class="n">back</span><span class="o">=</span><span class="n">sharing</span><span class="o">.</span><span class="n">flashcard</span><span class="o">.</span><span class="n">back</span><span class="p">,</span> <span class="n">learned</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">_get_current_object</span><span class="p">())</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Copied flashcard(#</span><span class="si">{</span><span class="n">sharing</span><span class="o">.</span><span class="n">flashcard</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">) to &quot;My Flashcards&quot;, new flashcard(#</span><span class="si">{</span><span class="n">card</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;flashcards_sharing&#39;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.flashcards_sharing_cancel_sharing" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">flashcards_sharing_cancel_sharing</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for cancelling a flashcard sharing</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/flashcards-sharing/cancel-sharing/&lt;int:sharing_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">flashcards_sharing_cancel_sharing</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A route for cancelling a flashcard sharing&quot;&quot;&quot;</span>
+    <span class="n">sharing</span> <span class="o">=</span> <span class="n">SharedFlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">!=</span> <span class="n">sharing</span><span class="o">.</span><span class="n">owner_user_id</span> <span class="ow">and</span>\
+        <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">!=</span> <span class="n">sharing</span><span class="o">.</span><span class="n">target_user_id</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Invalid permission&#39;</span><span class="p">)</span>
+    <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sharing of flashcard(#</span><span class="si">{</span><span class="n">sharing</span><span class="o">.</span><span class="n">flashcard</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">) cancelled&#39;</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">sharing</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;flashcards_sharing&#39;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.home" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">home</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Homepage route</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Homepage route&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;homepage.html&quot;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.import_flashcard" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">import_flashcard</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Import Flashcard route, for user to import markdown file into flashcard</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/import-flashcard&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">import_flashcard</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Import Flashcard route, for user to import markdown file into flashcard&quot;&quot;&quot;</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">UploadMarkdownForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">section</span><span class="p">,</span> <span class="n">flashcards</span> <span class="ow">in</span> <span class="n">md2flashcard</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1"># TODO: Save flashcard by section</span>
+            <span class="k">for</span> <span class="n">flashcard</span> <span class="ow">in</span> <span class="n">flashcards</span><span class="p">:</span>
+                <span class="n">card</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="p">(</span><span class="n">front</span><span class="o">=</span><span class="n">flashcard</span><span class="o">.</span><span class="n">front</span><span class="p">,</span> <span class="n">back</span><span class="o">=</span><span class="n">flashcard</span><span class="o">.</span><span class="n">back</span><span class="p">,</span> <span class="n">learned</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="n">user</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">_get_current_object</span><span class="p">())</span>
+                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Uploaded file </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s1"> into flashcards&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_flashcard&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;import-flashcard.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.learn_flashcard" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">learn_flashcard</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Learn Flashcard route, for user to learn from all it's existing flashcards in My Flashcards</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/learn-flashcard&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">learn_flashcard</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Learn Flashcard route, for user to learn from all it&#39;s existing flashcards in My Flashcards&quot;&quot;&quot;</span>
+    <span class="c1"># Not implemented yet, redirect back</span>
+    <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature not implemented yet&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_flashcard&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.log" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">log</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>User logged in route, this redirects to homepage</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/loggedin&quot;</span><span class="p">)</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">log</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;User logged in route, this redirects to homepage&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;/homepage.html&quot;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.login" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">login</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Login page route</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Login page route&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">))</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+            <span class="n">login_user</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">remember</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">remember_me</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Login requested for user </span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1">,remember_me=</span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">remember_me</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">next_page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;next&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">next_page</span><span class="p">)</span> <span class="k">if</span> <span class="n">next_page</span> <span class="k">else</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Login invalid username or password!&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;login.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.logout" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">logout</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>User logged out route, this logout the user and redirects to homepage</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/logout&quot;</span><span class="p">)</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;User logged out route, this logout the user and redirects to homepage&quot;&quot;&quot;</span>
+    <span class="n">logout_user</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;home&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.myTodo" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">myTodo</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Show ToDo list route</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/todo&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">myTodo</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Show ToDo list route&quot;&quot;&quot;</span>
+    <span class="n">todo_list</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;todo.html&quot;</span><span class="p">,</span> <span class="n">todo_list</span><span class="o">=</span><span class="n">todo_list</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.page_not_found" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">page_not_found</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Handler error404 and print out description of error</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">page_not_found</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Handler error404 and print out description of error&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)),</span> <span class="mi">404</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.remove_flashcard" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">remove_flashcard</span><span class="p">(</span><span class="n">flashcard_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route to remove a flashcard from user's MyFlashCard,
+this will redirect back to My Flashcards after removing the specified card</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/remove-flashcard/&lt;int:flashcard_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">remove_flashcard</span><span class="p">(</span><span class="n">flashcard_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A route to remove a flashcard from user&#39;s MyFlashCard,</span>
+<span class="sd">    this will redirect back to My Flashcards after removing the specified card</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flashcard</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">flashcard_id</span><span class="p">)</span><span class="o">.</span><span class="n">one_or_none</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">flashcard</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Deleted flashcard front=&quot;</span><span class="si">{</span><span class="n">flashcard</span><span class="o">.</span><span class="n">front</span><span class="si">}</span><span class="s1">&quot;, back=&quot;</span><span class="si">{</span><span class="n">flashcard</span><span class="o">.</span><span class="n">back</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">flashcard</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_flashcard&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.remove_friend_userid_provided" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">remove_friend_userid_provided</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for handling cancel sent friend request and reject freind request,
+this will then redirect back to MyFriends page</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/remove-friend/&lt;int:user_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">remove_friend_userid_provided</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A route for handling cancel sent friend request and reject freind request,</span>
+<span class="sd">    this will then redirect back to MyFriends page</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Abort if removing self as friend</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Cannot remove yourself from friend&quot;</span><span class="p">)</span>
+    <span class="n">status</span><span class="p">,</span> <span class="n">friend_record</span> <span class="o">=</span> <span class="n">get_friend_status</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">user_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">friend_record</span><span class="p">:</span>
+        <span class="n">other_user</span> <span class="o">=</span> <span class="n">friend_record</span><span class="o">.</span><span class="n">user1</span><span class="o">.</span><span class="n">username</span> <span class="k">if</span> <span class="n">friend_record</span><span class="o">.</span><span class="n">user1</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="k">else</span> <span class="n">friend_record</span><span class="o">.</span><span class="n">user2</span><span class="o">.</span><span class="n">username</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Removed &quot;</span><span class="si">{</span><span class="n">other_user</span><span class="si">}</span><span class="s1">&quot; from friend&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-sent-request&#39;</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unsent friend request to &quot;</span><span class="si">{</span><span class="n">other_user</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-to-approve&#39;</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Rejected friend request from &quot;</span><span class="si">{</span><span class="n">other_user</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;neutral&#39;</span><span class="p">:</span>
+            <span class="k">pass</span> <span class="c1"># Do nothing</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Unknown status </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">friend_record</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_friends&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.render" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">render</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Route for user to render markdwon notes</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/render&quot;</span><span class="p">,</span> <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">render</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Route for user to render markdwon notes&quot;&quot;&quot;</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">RenderMarkdown</span><span class="p">()</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">pagedown</span><span class="o">.</span><span class="n">data</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span><span class="o">.</span><span class="n">pagedown</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Enter Markdown &#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;upload_md.html&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.share_flashcard" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">share_flashcard</span><span class="p">(</span><span class="n">flashcard_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for user to use the ShareFlashCardForm to select which friend they
+want to share the specified flashcard with.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/share-flashcard/&lt;int:flashcard_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">share_flashcard</span><span class="p">(</span><span class="n">flashcard_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A route for user to use the ShareFlashCardForm to select which friend they</span>
+<span class="sd">    want to share the specified flashcard with.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flashcard</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">flashcard_id</span><span class="p">)</span><span class="o">.</span><span class="n">one_or_none</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">flashcard</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">Description</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Unable to find flashcard with id </span><span class="si">{</span><span class="n">flashcard_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">friends</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">status</span><span class="p">,</span> <span class="n">oth_user</span> <span class="ow">in</span> <span class="n">get_all_friends</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span> <span class="c1"># Only find friends</span>
+            <span class="n">friends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">oth_user</span><span class="p">)</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">ShareFlashCardForm</span><span class="p">()</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">dropdown</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">username</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">friends</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">dropdown</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">share_card</span> <span class="o">=</span> <span class="n">SharedFlashCard</span><span class="p">(</span><span class="n">flashcard_id</span><span class="o">=</span><span class="n">flashcard_id</span><span class="p">,</span>
+                                    <span class="n">datetime</span><span class="o">=</span><span class="n">now</span><span class="p">,</span>
+                                    <span class="n">owner_user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span>
+                                    <span class="n">target_user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">share_card</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shared flashcard(#</span><span class="si">{</span><span class="n">flashcard_id</span><span class="si">}</span><span class="s1">) to &quot;</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot; on </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_flashcard&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;share-flashcard.html&quot;</span><span class="p">,</span> <span class="n">flashcard</span><span class="o">=</span><span class="n">flashcard</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.show_flashcard" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">show_flashcard</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>My Flashcard route, to show all flashcard of current user</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/my-flashcards&quot;</span><span class="p">)</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">show_flashcard</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;My Flashcard route, to show all flashcard of current user&quot;&quot;&quot;</span>
+    <span class="n">ordered_cards</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">FlashCard</span><span class="o">.</span><span class="n">learned</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ordered_cards</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have any flashcards. Please create one&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;add_flashcard&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;my-flashcards.html&quot;</span><span class="p">,</span> <span class="n">ordered_cards</span><span class="o">=</span><span class="n">ordered_cards</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.show_friends" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">show_friends</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>My Friends route for viewing all friends and accepting/rejecting pending friend requests</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/my-friends&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">show_friends</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;My Friends route for viewing all friends and accepting/rejecting pending friend requests&quot;&quot;&quot;</span>
+    <span class="c1"># Handle show all friends</span>
+    <span class="n">friends</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">status</span><span class="p">,</span> <span class="n">oth_user</span> <span class="ow">in</span> <span class="n">get_all_friends</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove Friend&#39;</span><span class="p">)]</span>
+            <span class="n">print_status</span> <span class="o">=</span> <span class="s1">&#39;Friend&#39;</span>
+        <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-sent-request&#39;</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Unsend&#39;</span><span class="p">)]</span>
+            <span class="n">print_status</span> <span class="o">=</span> <span class="s1">&#39;Sent&#39;</span>
+        <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-to-approve&#39;</span><span class="p">:</span>
+            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Approve&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Reject&#39;</span><span class="p">)]</span>
+            <span class="n">print_status</span> <span class="o">=</span> <span class="s1">&#39;Pending&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Unknown status </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">friends</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">oth_user</span><span class="p">,</span> <span class="n">print_status</span><span class="p">,</span> <span class="n">buttons</span><span class="p">))</span>
+    <span class="c1"># Handle Add user</span>
+    <span class="n">found_users</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">search_form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">search_form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">search_str</span> <span class="o">=</span> <span class="n">search_form</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">search_str</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">status</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_friend_status</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove Friend&#39;</span><span class="p">)]</span>
+            <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-sent-request&#39;</span><span class="p">:</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Unsend&#39;</span><span class="p">)]</span>
+            <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-to-approve&#39;</span><span class="p">:</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Approve&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Reject&#39;</span><span class="p">)]</span>
+            <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;neutral&#39;</span><span class="p">:</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Add Friend&#39;</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Unknown status </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">found_users</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">buttons</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;my-friends.html&quot;</span><span class="p">,</span> <span class="n">friends</span><span class="o">=</span><span class="n">friends</span><span class="p">,</span> <span class="n">search_form</span><span class="o">=</span><span class="n">search_form</span><span class="p">,</span> <span class="n">found_users</span><span class="o">=</span><span class="n">found_users</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.signup" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">signup</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Signup page route</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/signup&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">signup</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Signup page route&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">))</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">SignupForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">email</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">hashed_password</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Your account has been created. You can now login&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;home&quot;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;signup.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.tomato" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">tomato</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Show Pomodoro timer route</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/pomodoro&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">tomato</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Show Pomodoro timer route&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;/pomodoro.html&quot;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.updateTodo" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">updateTodo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Mark ToDo item to complete/not complete, then redirect back to show ToDo list</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/updateTodo/&lt;int:todo_id&gt;&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">updateTodo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Mark ToDo item to complete/not complete, then redirect back to show ToDo list&quot;&quot;&quot;</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">todo_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">todo</span><span class="o">.</span><span class="n">complete</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">todo</span><span class="o">.</span><span class="n">complete</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;myTodo&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="models_methods.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: models_methods.py" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              models_methods.py
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Flashcards/MarkdownFlashcard.html" class="md-footer__link md-footer__link--next" aria-label="Next: Markdown Flashcards" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Markdown Flashcards
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.01824240.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e8a254df.min.js"></script>
+      
+    
+  </body>
+</html>
