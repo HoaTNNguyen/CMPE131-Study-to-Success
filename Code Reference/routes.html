@@ -379,6 +379,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.routes.download_flashcard_as_pdf" class="md-nav__link">
+    download_flashcard_as_pdf()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.routes.flashcards_sharing" class="md-nav__link">
     flashcards_sharing()
   </a>
@@ -643,6 +650,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.routes.download_flashcard_as_pdf" class="md-nav__link">
+    download_flashcard_as_pdf()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.routes.flashcards_sharing" class="md-nav__link">
     flashcards_sharing()
   </a>
@@ -884,7 +898,7 @@ def my_route1():
     <span class="sd">&quot;&quot;&quot;Add flashcard page route, allow user to use FlashCardForm to add a new flashcard&quot;&quot;&quot;</span>
     <span class="n">form</span> <span class="o">=</span> <span class="n">FlashCardForm</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
-        <span class="n">card</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="p">(</span><span class="n">front</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">front</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">back</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">back</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">learned</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">_get_current_object</span><span class="p">())</span>
+        <span class="n">card</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="p">(</span><span class="n">front</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">front</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">back</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">back</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">learned</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">_get_current_object</span><span class="p">())</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
         <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Flashcard has been created&quot;</span><span class="p">)</span>
@@ -975,6 +989,53 @@ def my_route1():
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">todo</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;myTodo&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.download_flashcard_as_pdf" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">download_flashcard_as_pdf</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Download Flashcards to a single PDF file, then it will redirect user back to My Flashcards</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/download-flashcard-as-pdf&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">download_flashcard_as_pdf</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Download Flashcards to a single PDF file, then it will redirect user back to My Flashcards&quot;&quot;&quot;</span>
+    <span class="n">ordered_cards</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">FlashCard</span><span class="o">.</span><span class="n">learned</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="c1"># Handle case of no flashcard</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ordered_cards</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;No flashcards found, cannot download as pdf&quot;</span><span class="p">)</span>
+    <span class="c1"># Generate markdown content</span>
+    <span class="n">cards</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ordered_cards</span><span class="p">):</span> <span class="c1"># Generate a markdown card for each card</span>
+        <span class="n">cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---</span><span class="se">\n\n</span><span class="s1">**</span><span class="si">{</span><span class="n">card</span><span class="o">.</span><span class="n">front</span><span class="si">}</span><span class="s1">**</span><span class="se">\n\n</span><span class="s1">?</span><span class="se">\n\n</span><span class="si">{</span><span class="n">card</span><span class="o">.</span><span class="n">back</span><span class="si">}</span><span class="se">\n\n</span><span class="s1">---</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">cards_text</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cards</span><span class="p">)</span>
+    <span class="n">md_text</span> <span class="o">=</span> <span class="s1">&#39;## Flashcards</span><span class="se">\n\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">cards_text</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">md_text</span><span class="p">)</span>
+    <span class="c1"># Covert to html</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">md_text</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">temp_dir</span><span class="p">:</span>
+        <span class="n">pdf_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">,</span> <span class="s1">&#39;flashcards.pdf&#39;</span><span class="p">)</span>
+        <span class="c1"># Convert html to pdf</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pdf_filename</span><span class="p">,</span> <span class="s2">&quot;wb+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">pisa_status</span> <span class="o">=</span> <span class="n">pisa</span><span class="o">.</span><span class="n">CreatePDF</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">send_file</span><span class="p">(</span><span class="n">pdf_filename</span><span class="p">,</span> <span class="n">as_attachment</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1175,9 +1236,59 @@ def my_route1():
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">learn_flashcard</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Learn Flashcard route, for user to learn from all it&#39;s existing flashcards in My Flashcards&quot;&quot;&quot;</span>
-    <span class="c1"># Not implemented yet, redirect back</span>
-    <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Feature not implemented yet&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_flashcard&quot;</span><span class="p">))</span>
+    <span class="n">first_card</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">FlashCard</span><span class="o">.</span><span class="n">learned</span><span class="p">,</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">view</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">cards</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="c1"># list of cards that the current user has</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cards</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;You must have at least 4 flashcards. Please create more flashcards&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;add_flashcard&quot;</span><span class="p">))</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">ObjectiveForm</span><span class="p">()</span>
+    <span class="n">formNext</span> <span class="o">=</span> <span class="n">NextButton</span><span class="p">()</span>
+    <span class="n">list_id</span> <span class="o">=</span> <span class="n">_shuffle_choices</span><span class="p">(</span><span class="n">first_card</span><span class="p">,</span> <span class="n">cards</span><span class="p">)</span>
+    <span class="n">choice</span> <span class="o">=</span> <span class="p">[</span><span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_id</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">)</span>
+                <span class="n">first_card</span><span class="o">.</span><span class="n">learned</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">form</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span><span class="p">:</span>
+                <span class="n">first_card</span><span class="o">.</span><span class="n">learned</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">form</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">)</span>
+                <span class="n">first_card</span><span class="o">.</span><span class="n">learned</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">form</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">)</span>
+                <span class="n">first_card</span><span class="o">.</span><span class="n">learned</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">formNext</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+            <span class="n">first_card</span><span class="o">.</span><span class="n">view</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;learn_flashcard&quot;</span><span class="p">))</span>
+
+    <span class="n">form</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">choice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">back</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">choice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">back</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">choice</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">back</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">choice</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">back</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;learn-flashcard.html&quot;</span><span class="p">,</span> <span class="n">first_card</span><span class="o">=</span><span class="n">first_card</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">formNext</span><span class="o">=</span><span class="n">formNext</span><span class="p">,</span> <span class="n">choice</span><span class="o">=</span><span class="n">choice</span><span class="p">,</span> <span class="n">list_id</span><span class="o">=</span><span class="n">list_id</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1529,14 +1640,14 @@ want to share the specified flashcard with.</p>
 
     <div class="doc doc-contents ">
 
-      <p>My Flashcard route, to show all flashcard of current user</p>
+      <p>My Flashcard route, to show all flashcard of current user by order based on how often user got answer correct</p>
 
         <details class="quote">
           <summary>Source code in <code>myapp/routes.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/my-flashcards&quot;</span><span class="p">)</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">show_flashcard</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;My Flashcard route, to show all flashcard of current user&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;My Flashcard route, to show all flashcard of current user by order based on how often user got answer correct&quot;&quot;&quot;</span>
     <span class="n">ordered_cards</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">FlashCard</span><span class="o">.</span><span class="n">learned</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">ordered_cards</span><span class="p">:</span>
         <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have any flashcards. Please create one&quot;</span><span class="p">)</span>
