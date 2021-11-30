@@ -323,6 +323,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.models.Note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.models.ShareNote" class="md-nav__link">
+    ShareNote
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.models.SharedFlashCard" class="md-nav__link">
     SharedFlashCard
   </a>
@@ -504,6 +518,20 @@
         <li class="md-nav__item">
   <a href="#myapp.models.Friend" class="md-nav__link">
     Friend
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.models.Note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.models.ShareNote" class="md-nav__link">
+    ShareNote
   </a>
   
 </li>
@@ -732,6 +760,168 @@ status becomes 'FRIEND'</p>
 
 
   <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="myapp.models.Note" class="doc doc-heading">
+        <code>
+Note            (<span title="sqlalchemy.orm.decl_api.Model">Model</span>)
+        </code>
+
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Database table for notes</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>id</code></td>
+        <td></td>
+        <td><p>Primary key</p></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td></td>
+        <td><p>String column, title of note</p></td>
+      </tr>
+      <tr>
+        <td><code>data</code></td>
+        <td></td>
+        <td><p>text column, containing files data</p></td>
+      </tr>
+      <tr>
+        <td><code>User</code></td>
+        <td></td>
+        <td><p>id if user who added notes</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="myapp.models.ShareNote" class="doc doc-heading">
+        <code>
+ShareNote            (<span title="sqlalchemy.orm.decl_api.Model">Model</span>)
+        </code>
+
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Saves sharing information of notes</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>id</code></td>
+        <td></td>
+        <td><p>Primary key</p></td>
+      </tr>
+      <tr>
+        <td><code>datetime</code></td>
+        <td></td>
+        <td><p>Datetime column, time of sharing</p></td>
+      </tr>
+      <tr>
+        <td><code>note_id</code></td>
+        <td></td>
+        <td><p>Integer column, id of note that is shared</p></td>
+      </tr>
+      <tr>
+        <td><code>owner_user_id</code></td>
+        <td></td>
+        <td><p>Integer column, id of person sharing the note</p></td>
+      </tr>
+      <tr>
+        <td><code>target_user_id</code></td>
+        <td></td>
+        <td><p>Integer column, id of person that was shared with the note</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
 
 
 

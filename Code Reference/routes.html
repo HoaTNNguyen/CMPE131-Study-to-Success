@@ -386,6 +386,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.routes.download_note_as_pdf" class="md-nav__link">
+    download_note_as_pdf()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.routes.flashcards_sharing" class="md-nav__link">
     flashcards_sharing()
   </a>
@@ -491,6 +498,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.routes.share_note" class="md-nav__link">
+    share_note()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.routes.show_flashcard" class="md-nav__link">
     show_flashcard()
   </a>
@@ -500,6 +514,13 @@
         <li class="md-nav__item">
   <a href="#myapp.routes.show_friends" class="md-nav__link">
     show_friends()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.show_notes" class="md-nav__link">
+    show_notes()
   </a>
   
 </li>
@@ -521,6 +542,20 @@
         <li class="md-nav__item">
   <a href="#myapp.routes.updateTodo" class="md-nav__link">
     updateTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.upload_note" class="md-nav__link">
+    upload_note()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.view_notes" class="md-nav__link">
+    view_notes()
   </a>
   
 </li>
@@ -657,6 +692,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.routes.download_note_as_pdf" class="md-nav__link">
+    download_note_as_pdf()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.routes.flashcards_sharing" class="md-nav__link">
     flashcards_sharing()
   </a>
@@ -762,6 +804,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.routes.share_note" class="md-nav__link">
+    share_note()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.routes.show_flashcard" class="md-nav__link">
     show_flashcard()
   </a>
@@ -771,6 +820,13 @@
         <li class="md-nav__item">
   <a href="#myapp.routes.show_friends" class="md-nav__link">
     show_friends()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.show_notes" class="md-nav__link">
+    show_notes()
   </a>
   
 </li>
@@ -792,6 +848,20 @@
         <li class="md-nav__item">
   <a href="#myapp.routes.updateTodo" class="md-nav__link">
     updateTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.upload_note" class="md-nav__link">
+    upload_note()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.view_notes" class="md-nav__link">
+    view_notes()
   </a>
   
 </li>
@@ -1036,6 +1106,46 @@ def my_route1():
         <span class="c1"># Convert html to pdf</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pdf_filename</span><span class="p">,</span> <span class="s2">&quot;wb+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
             <span class="n">pisa_status</span> <span class="o">=</span> <span class="n">pisa</span><span class="o">.</span><span class="n">CreatePDF</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">send_file</span><span class="p">(</span><span class="n">pdf_filename</span><span class="p">,</span> <span class="n">as_attachment</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.download_note_as_pdf" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">download_note_as_pdf</span><span class="p">(</span><span class="n">note_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Route will allow for html note to be downloaded as pdf in the md file in a pdf directory</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/download-note-as-pdf/&lt;int:note_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">download_note_as_pdf</span><span class="p">(</span><span class="n">note_id</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Route will allow for html note to be downloaded as pdf in the md file in a pdf directory&#39;&#39;&#39;</span>
+    <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">note_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">one_or_none</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">note</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Note with id </span><span class="si">{</span><span class="n">note_id</span><span class="si">}</span><span class="s2"> doesn&#39;t exists&quot;</span><span class="p">)</span>
+    <span class="n">html_text</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">output_filename</span> <span class="o">=</span> <span class="n">note</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.md&quot;</span><span class="p">)</span>
+    <span class="n">output_filename</span> <span class="o">=</span> <span class="n">output_filename</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.pdf&#39;</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">temp_dir</span><span class="p">:</span>
+        <span class="n">pdf_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
+        <span class="c1"># Convert html to pdf</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pdf_filename</span><span class="p">,</span> <span class="s2">&quot;wb+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">pisa_status</span> <span class="o">=</span> <span class="n">pisa</span><span class="o">.</span><span class="n">CreatePDF</span><span class="p">(</span><span class="n">html_text</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">send_file</span><span class="p">(</span><span class="n">pdf_filename</span><span class="p">,</span> <span class="n">as_attachment</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
         </details>
@@ -1559,7 +1669,7 @@ this will then redirect back to MyFriends page</p>
 
         <details class="quote">
           <summary>Source code in <code>myapp/routes.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/render&quot;</span><span class="p">,</span> <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/render&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">render</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Route for user to render markdwon notes&quot;&quot;&quot;</span>
@@ -1570,6 +1680,7 @@ this will then redirect back to MyFriends page</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">form</span><span class="o">.</span><span class="n">pagedown</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Enter Markdown &#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;upload_md.html&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;homepage.html&quot;</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1622,6 +1733,49 @@ want to share the specified flashcard with.</p>
         <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shared flashcard(#</span><span class="si">{</span><span class="n">flashcard_id</span><span class="si">}</span><span class="s1">) to &quot;</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot; on </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_flashcard&quot;</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;share-flashcard.html&quot;</span><span class="p">,</span> <span class="n">flashcard</span><span class="o">=</span><span class="n">flashcard</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.share_note" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">share_note</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>(not functional) route will allow user to share note to other users(friends)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/share_notes/&lt;int:user_id&gt;/&lt;int:id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">share_note</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;(not functional) route will allow user to share note to other users(friends)&#39;&#39;&#39;</span>
+    <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">friends</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">status</span><span class="p">,</span> <span class="n">oth_user</span> <span class="ow">in</span> <span class="n">get_all_friends</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span>  <span class="c1"># Only find friends</span>
+            <span class="n">friends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">oth_user</span><span class="p">)</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">NoteShareForm</span><span class="p">()</span>
+    <span class="n">form</span><span class="o">.</span><span class="n">dropdown</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">username</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">friends</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">dropdown</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+        <span class="n">shared_note</span> <span class="o">=</span> <span class="n">NoteShareForm</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">owner_user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">target_user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">shared_note</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shared note(#</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">) to &quot;</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot; on </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/note/</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;share-notes.html&quot;</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="n">note</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1730,6 +1884,39 @@ want to share the specified flashcard with.</p>
 
 
 
+<h2 id="myapp.routes.show_notes" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">show_notes</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Route to view a users notes</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/note&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">show_notes</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Route to view a users notes&quot;&quot;&quot;</span>
+    <span class="n">posted_notes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">notes</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
+        <span class="n">posted_notes</span> <span class="o">=</span> <span class="n">posted_notes</span> <span class="o">+</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}]</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;note.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Note&#39;</span><span class="p">,</span> <span class="n">posted_notes</span><span class="o">=</span><span class="n">posted_notes</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
 <h2 id="myapp.routes.signup" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">signup</span><span class="p">()</span></code>
 
@@ -1817,6 +2004,80 @@ want to share the specified flashcard with.</p>
     <span class="n">todo</span><span class="o">.</span><span class="n">complete</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">todo</span><span class="o">.</span><span class="n">complete</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;myTodo&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.upload_note" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">upload_note</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Import note route, for user to import markdown file into note</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/upload-note&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">upload_note</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Import note route, for user to import markdown file into note&quot;&quot;&quot;</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">UploadMarkdownForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">filename</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+        <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">content</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">note</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Uploaded note </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1"> &#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_notes&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;import-note.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.view_notes" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">view_notes</span><span class="p">(</span><span class="n">note_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Route to view note, this is similar to show_notes </p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/viewNote/&lt;int:note_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">view_notes</span><span class="p">(</span><span class="n">note_id</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Route to view note, this is similar to show_notes &#39;&#39;&#39;</span>
+    <span class="n">posted_notes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">notes</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
+        <span class="n">posted_notes</span> <span class="o">=</span> <span class="n">posted_notes</span> <span class="o">+</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}]</span>
+    <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">note_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">one_or_none</span><span class="p">()</span>
+    <span class="n">html_text</span> <span class="o">=</span>  <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;note.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Note&#39;</span><span class="p">,</span> <span class="n">posted_notes</span><span class="o">=</span><span class="n">posted_notes</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="n">note</span><span class="p">,</span> <span class="n">html_text</span><span class="o">=</span><span class="n">html_text</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
