@@ -861,10 +861,11 @@ def my_route1():
         <details class="quote">
           <summary>Source code in <code>myapp/routes.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/addTodo&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">addTodo</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Add ToDo item into ToDo list, then redirect back to show ToDo list&quot;&quot;&quot;</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
-    <span class="n">new_todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">complete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">new_todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">complete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_todo</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;myTodo&quot;</span><span class="p">))</span>
@@ -983,9 +984,10 @@ def my_route1():
         <details class="quote">
           <summary>Source code in <code>myapp/routes.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/deleteTodo/&lt;int:todo_id&gt;&quot;</span><span class="p">)</span>
+<span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">deleteTodo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Remove ToDo item from ToDo list, then redirect back to show ToDo list&quot;&quot;&quot;</span>
-    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">todo_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">todo_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">todo</span><span class="p">)</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;myTodo&quot;</span><span class="p">))</span>
@@ -1027,7 +1029,6 @@ def my_route1():
         <span class="n">cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---</span><span class="se">\n\n</span><span class="s1">**</span><span class="si">{</span><span class="n">card</span><span class="o">.</span><span class="n">front</span><span class="si">}</span><span class="s1">**</span><span class="se">\n\n</span><span class="s1">?</span><span class="se">\n\n</span><span class="si">{</span><span class="n">card</span><span class="o">.</span><span class="n">back</span><span class="si">}</span><span class="se">\n\n</span><span class="s1">---</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">cards_text</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cards</span><span class="p">)</span>
     <span class="n">md_text</span> <span class="o">=</span> <span class="s1">&#39;## Flashcards</span><span class="se">\n\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">cards_text</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">md_text</span><span class="p">)</span>
     <span class="c1"># Covert to html</span>
     <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">md_text</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">temp_dir</span><span class="p">:</span>
@@ -1414,9 +1415,10 @@ def my_route1():
         <details class="quote">
           <summary>Source code in <code>myapp/routes.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/todo&quot;</span><span class="p">)</span>
+<span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">myTodo</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Show ToDo list route&quot;&quot;&quot;</span>
-    <span class="n">todo_list</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">todo_list</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;todo.html&quot;</span><span class="p">,</span> <span class="n">todo_list</span><span class="o">=</span><span class="n">todo_list</span><span class="p">)</span>
 </code></pre></div>
         </details>
@@ -1808,9 +1810,10 @@ want to share the specified flashcard with.</p>
         <details class="quote">
           <summary>Source code in <code>myapp/routes.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/updateTodo/&lt;int:todo_id&gt;&quot;</span><span class="p">)</span>
+<span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">updateTodo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Mark ToDo item to complete/not complete, then redirect back to show ToDo list&quot;&quot;&quot;</span>
-    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">todo_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">todo_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
     <span class="n">todo</span><span class="o">.</span><span class="n">complete</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">todo</span><span class="o">.</span><span class="n">complete</span>
     <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;myTodo&quot;</span><span class="p">))</span>
