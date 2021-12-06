@@ -351,6 +351,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.routes.account" class="md-nav__link">
+    account()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.routes.addTodo" class="md-nav__link">
     addTodo()
   </a>
@@ -367,6 +374,13 @@
         <li class="md-nav__item">
   <a href="#myapp.routes.add_friend_userid_provided" class="md-nav__link">
     add_friend_userid_provided()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.change_avatar" class="md-nav__link">
+    change_avatar()
   </a>
   
 </li>
@@ -458,6 +472,27 @@
         <li class="md-nav__item">
   <a href="#myapp.routes.myTodo" class="md-nav__link">
     myTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.notes_sharing" class="md-nav__link">
+    notes_sharing()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.notes_sharing_add_to_mynotes" class="md-nav__link">
+    notes_sharing_add_to_mynotes()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.notes_sharing_cancel_sharing" class="md-nav__link">
+    notes_sharing_cancel_sharing()
   </a>
   
 </li>
@@ -657,6 +692,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#myapp.routes.account" class="md-nav__link">
+    account()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#myapp.routes.addTodo" class="md-nav__link">
     addTodo()
   </a>
@@ -673,6 +715,13 @@
         <li class="md-nav__item">
   <a href="#myapp.routes.add_friend_userid_provided" class="md-nav__link">
     add_friend_userid_provided()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.change_avatar" class="md-nav__link">
+    change_avatar()
   </a>
   
 </li>
@@ -764,6 +813,27 @@
         <li class="md-nav__item">
   <a href="#myapp.routes.myTodo" class="md-nav__link">
     myTodo()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.notes_sharing" class="md-nav__link">
+    notes_sharing()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.notes_sharing_add_to_mynotes" class="md-nav__link">
+    notes_sharing_add_to_mynotes()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#myapp.routes.notes_sharing_cancel_sharing" class="md-nav__link">
+    notes_sharing_cancel_sharing()
   </a>
   
 </li>
@@ -914,6 +984,38 @@ def my_route1():
 
 
 
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.account" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">account</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>User's account page, redirect if need to change avatar</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/account&quot;</span><span class="p">)</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">account</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;User&#39;s account page, redirect if need to change avatar&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;/account.html&quot;</span><span class="p">,</span> <span class="n">avatars</span><span class="o">=</span><span class="n">AVATAR_IMGS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
   <div class="doc doc-object doc-function">
 
 
@@ -972,7 +1074,7 @@ def my_route1():
         <span class="n">card</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="p">(</span><span class="n">front</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">front</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">back</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">back</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">learned</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">_get_current_object</span><span class="p">())</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">card</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Flashcard has been created&quot;</span><span class="p">)</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Flashcard has been created&quot;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;add_flashcard&quot;</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;/add-flashcard.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
 </code></pre></div>
@@ -1012,7 +1114,7 @@ def my_route1():
         <span class="k">pass</span>
     <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-sent-request&#39;</span><span class="p">:</span>
         <span class="c1"># Current user sent a request, do nothing</span>
-        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Friend request already sent to &quot;</span><span class="si">{</span><span class="n">friend_record</span><span class="o">.</span><span class="n">user2</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Friend request already sent to &quot;</span><span class="si">{</span><span class="n">friend_record</span><span class="o">.</span><span class="n">user2</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-to-approve&#39;</span><span class="p">:</span>
         <span class="c1"># Other user sent the request, approve (Change status from pending to approved)</span>
         <span class="n">friend_record</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">FriendStatusEnum</span><span class="o">.</span><span class="n">FRIEND</span>
@@ -1029,6 +1131,44 @@ def my_route1():
     <span class="k">else</span><span class="p">:</span>
         <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Unknown status </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_friends&quot;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.change_avatar" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">change_avatar</span><span class="p">(</span><span class="n">avatar_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>To switch avatar pictures and more, then redirect back to account</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/change_avatar/&lt;int:avatar_id&gt;&quot;</span><span class="p">)</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">change_avatar</span><span class="p">(</span><span class="n">avatar_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;To switch avatar pictures and more, then redirect back to account&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">avatar_id</span> <span class="ow">in</span> <span class="n">AVATAR_IMGS</span><span class="p">:</span>
+        <span class="n">avatar_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;./static/</span><span class="si">{</span><span class="n">AVATAR_IMGS</span><span class="p">[</span><span class="n">avatar_id</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">avatar_path</span><span class="p">):</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">_get_current_object</span><span class="p">()</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">avatar_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                <span class="n">user</span><span class="o">.</span><span class="n">avatar</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># Modify avatar blob</span>
+                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Avatar </span><span class="si">{</span><span class="n">avatar_path</span><span class="si">}</span><span class="s2"> doesn&#39;t exists&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;account&quot;</span><span class="p">))</span>
 </code></pre></div>
         </details>
     </div>
@@ -1327,6 +1467,7 @@ def my_route1():
 
 
 
+
   <div class="doc doc-object doc-function">
 
 
@@ -1351,7 +1492,7 @@ def my_route1():
     <span class="n">cards</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="c1"># list of cards that the current user has</span>
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cards</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;You must have at least 4 flashcards. Please create more flashcards&quot;</span><span class="p">)</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;You must have at least 4 flashcards. Please create more flashcards&quot;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;add_flashcard&quot;</span><span class="p">))</span>
 
     <span class="n">form</span> <span class="o">=</span> <span class="n">ObjectiveForm</span><span class="p">()</span>
@@ -1359,38 +1500,40 @@ def my_route1():
     <span class="n">list_id</span> <span class="o">=</span> <span class="n">_shuffle_choices</span><span class="p">(</span><span class="n">first_card</span><span class="p">,</span> <span class="n">cards</span><span class="p">)</span>
     <span class="n">choice</span> <span class="o">=</span> <span class="p">[</span><span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_id</span><span class="p">]</span>
 
+    <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span><span class="p">:</span>
-                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">)</span>
-                <span class="n">first_card</span><span class="o">.</span><span class="n">learned</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">)</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">elif</span> <span class="n">form</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span><span class="p">:</span>
-                <span class="n">first_card</span><span class="o">.</span><span class="n">learned</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">)</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">)</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">elif</span> <span class="n">form</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span><span class="p">:</span>
-                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">)</span>
-                <span class="n">first_card</span><span class="o">.</span><span class="n">learned</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">)</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">elif</span> <span class="n">form</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span><span class="p">:</span>
-                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">)</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># If form submitted</span>
+        <span class="k">if</span> <span class="n">correct_choice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># If correct choice</span>
+            <span class="k">if</span> <span class="n">correct_choice</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
+                <span class="n">correct_choice</span> <span class="o">=</span> <span class="n">first_card</span><span class="o">.</span><span class="n">back</span> <span class="c1"># Pass this to html template so it will render this as card instead of ABCD options</span>
                 <span class="n">first_card</span><span class="o">.</span><span class="n">learned</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">)</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;opps. Wrong answer&#39;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">formNext</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
-            <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
             <span class="n">first_card</span><span class="o">.</span><span class="n">view</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;learn_flashcard&quot;</span><span class="p">))</span>
@@ -1399,7 +1542,7 @@ def my_route1():
     <span class="n">form</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">choice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">back</span>
     <span class="n">form</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">choice</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">back</span>
     <span class="n">form</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">choice</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">back</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;learn-flashcard.html&quot;</span><span class="p">,</span> <span class="n">first_card</span><span class="o">=</span><span class="n">first_card</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">formNext</span><span class="o">=</span><span class="n">formNext</span><span class="p">,</span> <span class="n">choice</span><span class="o">=</span><span class="n">choice</span><span class="p">,</span> <span class="n">list_id</span><span class="o">=</span><span class="n">list_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;learn-flashcard.html&quot;</span><span class="p">,</span> <span class="n">first_card</span><span class="o">=</span><span class="n">first_card</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">formNext</span><span class="o">=</span><span class="n">formNext</span><span class="p">,</span> <span class="n">choice</span><span class="o">=</span><span class="n">choice</span><span class="p">,</span> <span class="n">list_id</span><span class="o">=</span><span class="n">list_id</span><span class="p">,</span> <span class="n">correct_choice</span><span class="o">=</span><span class="n">correct_choice</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1463,11 +1606,11 @@ def my_route1():
         <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
             <span class="n">login_user</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">remember</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">remember_me</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-            <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Login requested for user </span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1">,remember_me=</span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">remember_me</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Logged in as User &quot;</span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1">&quot;, remember_me=</span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">remember_me</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="n">next_page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;next&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">next_page</span><span class="p">)</span> <span class="k">if</span> <span class="n">next_page</span> <span class="k">else</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Login invalid username or password!&quot;</span><span class="p">)</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Login invalid username or password!&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;login.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
 </code></pre></div>
@@ -1530,6 +1673,110 @@ def my_route1():
     <span class="sd">&quot;&quot;&quot;Show ToDo list route&quot;&quot;&quot;</span>
     <span class="n">todo_list</span> <span class="o">=</span> <span class="n">Todo</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;todo.html&quot;</span><span class="p">,</span> <span class="n">todo_list</span><span class="o">=</span><span class="n">todo_list</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.notes_sharing" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">notes_sharing</span><span class="p">()</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for viewing sharing status of notes (both shared to others and others shared to me)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/notes-sharing&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">notes_sharing</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;A route for viewing sharing status of notes (both shared to others and others shared to me)&quot;&quot;&quot;</span>
+    <span class="n">owner_notes</span> <span class="o">=</span> <span class="n">SharedNote</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">owner_user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">target_notes</span> <span class="o">=</span> <span class="n">SharedNote</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">target_user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;notes-sharing.html&quot;</span><span class="p">,</span> <span class="n">owner_notes</span><span class="o">=</span><span class="n">owner_notes</span><span class="p">,</span> <span class="n">target_notes</span><span class="o">=</span><span class="n">target_notes</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.notes_sharing_add_to_mynotes" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">notes_sharing_add_to_mynotes</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for adding shared note that other user shared into My Notes</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/notes-sharing/add-to-mynotes/&lt;int:sharing_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">notes_sharing_add_to_mynotes</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A route for adding shared note that other user shared into My Notes&quot;&quot;&quot;</span>
+    <span class="n">sharing</span> <span class="o">=</span> <span class="n">SharedNote</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">!=</span> <span class="n">sharing</span><span class="o">.</span><span class="n">owner_user_id</span> <span class="ow">and</span>\
+        <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">!=</span> <span class="n">sharing</span><span class="o">.</span><span class="n">target_user_id</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Invalid permission&#39;</span><span class="p">)</span>
+    <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">sharing</span><span class="o">.</span><span class="n">note</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">sharing</span><span class="o">.</span><span class="n">note</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">note</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Copied note(#</span><span class="si">{</span><span class="n">sharing</span><span class="o">.</span><span class="n">note</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">) to &quot;My Notes&quot;, new note(#</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;notes_sharing&#39;</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="myapp.routes.notes_sharing_cancel_sharing" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">notes_sharing_cancel_sharing</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A route for cancelling a flashcard sharing</p>
+
+        <details class="quote">
+          <summary>Source code in <code>myapp/routes.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/notes-sharing/cancel-sharing/&lt;int:sharing_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">notes_sharing_cancel_sharing</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A route for cancelling a flashcard sharing&quot;&quot;&quot;</span>
+    <span class="n">sharing</span> <span class="o">=</span> <span class="n">SharedNote</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sharing_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">!=</span> <span class="n">sharing</span><span class="o">.</span><span class="n">owner_user_id</span> <span class="ow">and</span>\
+        <span class="nb">int</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span> <span class="o">!=</span> <span class="n">sharing</span><span class="o">.</span><span class="n">target_user_id</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Invalid permission&#39;</span><span class="p">)</span>
+    <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sharing of note(#</span><span class="si">{</span><span class="n">sharing</span><span class="o">.</span><span class="n">note</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">) cancelled&#39;</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">sharing</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;notes_sharing&#39;</span><span class="p">))</span>
 </code></pre></div>
         </details>
     </div>
@@ -1746,22 +1993,22 @@ want to share the specified flashcard with.</p>
 
 
 <h2 id="myapp.routes.share_note" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">share_note</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">share_note</span><span class="p">(</span><span class="n">note_id</span><span class="p">)</span></code>
 
 
 </h2>
 
     <div class="doc doc-contents ">
 
-      <p>(not functional) route will allow user to share note to other users(friends)</p>
+      <p>route will allow user to share note to other users(friends)</p>
 
         <details class="quote">
           <summary>Source code in <code>myapp/routes.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/share_notes/&lt;int:user_id&gt;/&lt;int:id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+          <div class="highlight"><pre><span></span><code><span class="nd">@myapp_obj</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/share-notes/&lt;int:note_id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="nd">@login_required</span>
-<span class="k">def</span> <span class="nf">share_note</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;(not functional) route will allow user to share note to other users(friends)&#39;&#39;&#39;</span>
-    <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">share_note</span><span class="p">(</span><span class="n">note_id</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; route will allow user to share note to other users(friends)&#39;&#39;&#39;</span>
+    <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">note_id</span><span class="p">)</span><span class="o">.</span><span class="n">one_or_none</span><span class="p">()</span>
     <span class="n">friends</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">status</span><span class="p">,</span> <span class="n">oth_user</span> <span class="ow">in</span> <span class="n">get_all_friends</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">()):</span>
         <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span>  <span class="c1"># Only find friends</span>
@@ -1770,12 +2017,13 @@ want to share the specified flashcard with.</p>
     <span class="n">form</span><span class="o">.</span><span class="n">dropdown</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">username</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">friends</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">dropdown</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
-        <span class="n">shared_note</span> <span class="o">=</span> <span class="n">NoteShareForm</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">owner_user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">target_user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">shared_note</span> <span class="o">=</span> <span class="n">SharedNote</span><span class="p">(</span><span class="n">note_id</span><span class="o">=</span><span class="n">note_id</span><span class="p">,</span> <span class="n">datetime</span><span class="o">=</span><span class="n">now</span><span class="p">,</span> <span class="n">owner_user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">target_user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">shared_note</span><span class="p">)</span>
         <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shared note(#</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">) to &quot;</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot; on </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/note/</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;share-notes.html&quot;</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="n">note</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shared note &quot;</span><span class="si">{</span><span class="n">shared_note</span><span class="o">.</span><span class="n">note</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot; to &quot;</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">&quot; on </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;show_notes&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;share-notes.html&quot;</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="n">note</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
 </code></pre></div>
         </details>
     </div>
@@ -1806,7 +2054,7 @@ want to share the specified flashcard with.</p>
     <span class="sd">&quot;&quot;&quot;My Flashcard route, to show all flashcard of current user by order based on how often user got answer correct&quot;&quot;&quot;</span>
     <span class="n">ordered_cards</span> <span class="o">=</span> <span class="n">FlashCard</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">FlashCard</span><span class="o">.</span><span class="n">learned</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">ordered_cards</span><span class="p">:</span>
-        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have any flashcards. Please create one&quot;</span><span class="p">)</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have any flashcards. Please create one&quot;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;add_flashcard&quot;</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;my-flashcards.html&quot;</span><span class="p">,</span> <span class="n">ordered_cards</span><span class="o">=</span><span class="n">ordered_cards</span><span class="p">)</span>
 </code></pre></div>
@@ -1841,13 +2089,15 @@ want to share the specified flashcard with.</p>
     <span class="n">friends</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">status</span><span class="p">,</span> <span class="n">oth_user</span> <span class="ow">in</span> <span class="n">get_all_friends</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">()):</span>
         <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span>
-            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove Friend&#39;</span><span class="p">)]</span>
+            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove Friend&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-danger&#39;</span><span class="p">)]</span> <span class="c1">#Tuple in the format (link, text, button_type)</span>
             <span class="n">print_status</span> <span class="o">=</span> <span class="s1">&#39;Friend&#39;</span>
         <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-sent-request&#39;</span><span class="p">:</span>
-            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Unsend&#39;</span><span class="p">)]</span>
+            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Unsend&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-warning&#39;</span><span class="p">)]</span>
             <span class="n">print_status</span> <span class="o">=</span> <span class="s1">&#39;Sent&#39;</span>
         <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-to-approve&#39;</span><span class="p">:</span>
-            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Approve&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Reject&#39;</span><span class="p">)]</span>
+            <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Approve&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-success&#39;</span><span class="p">),</span>
+                        <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">oth_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Reject&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-danger&#39;</span><span class="p">)</span>
+                    <span class="p">]</span>
             <span class="n">print_status</span> <span class="o">=</span> <span class="s1">&#39;Pending&#39;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Unknown status </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1861,13 +2111,15 @@ want to share the specified flashcard with.</p>
         <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
             <span class="n">status</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_friend_status</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;friend&#39;</span><span class="p">:</span>
-                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove Friend&#39;</span><span class="p">)]</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Remove Friend&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-danger&#39;</span><span class="p">)]</span>
             <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-sent-request&#39;</span><span class="p">:</span>
-                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Unsend&#39;</span><span class="p">)]</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Unsend&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-warning&#39;</span><span class="p">)]</span>
             <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;pending-to-approve&#39;</span><span class="p">:</span>
-                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Approve&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Reject&#39;</span><span class="p">)]</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Approve&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-success&#39;</span><span class="p">),</span>
+                            <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/remove-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Reject&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-danger&#39;</span><span class="p">)</span>
+                        <span class="p">]</span>
             <span class="k">elif</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;neutral&#39;</span><span class="p">:</span>
-                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Add Friend&#39;</span><span class="p">)]</span>
+                <span class="n">buttons</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s1">&#39;/add-friend/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Add Friend&#39;</span><span class="p">,</span> <span class="s1">&#39;btn-outline-info&#39;</span><span class="p">)]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Unknown status </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="n">found_users</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">buttons</span><span class="p">))</span>
@@ -1900,11 +2152,7 @@ want to share the specified flashcard with.</p>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">show_notes</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; Route to view a users notes&quot;&quot;&quot;</span>
-    <span class="n">posted_notes</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">notes</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
-        <span class="n">posted_notes</span> <span class="o">=</span> <span class="n">posted_notes</span> <span class="o">+</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}]</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;note.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Note&#39;</span><span class="p">,</span> <span class="n">posted_notes</span><span class="o">=</span><span class="n">posted_notes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;view_notes&#39;</span><span class="p">,</span> <span class="n">note_id</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># note_id 0 indicate no note to view</span>
 </code></pre></div>
         </details>
     </div>
@@ -2071,13 +2319,26 @@ want to share the specified flashcard with.</p>
 <span class="nd">@login_required</span>
 <span class="k">def</span> <span class="nf">view_notes</span><span class="p">(</span><span class="n">note_id</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Route to view note, this is similar to show_notes &#39;&#39;&#39;</span>
+    <span class="n">note</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">html_text</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">posted_notes</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">notes</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
-        <span class="n">posted_notes</span> <span class="o">=</span> <span class="n">posted_notes</span> <span class="o">+</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">note</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}]</span>
-    <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">note_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">one_or_none</span><span class="p">()</span>
-    <span class="n">html_text</span> <span class="o">=</span>  <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;note.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Note&#39;</span><span class="p">,</span> <span class="n">posted_notes</span><span class="o">=</span><span class="n">posted_notes</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="n">note</span><span class="p">,</span> <span class="n">html_text</span><span class="o">=</span><span class="n">html_text</span><span class="p">)</span>
+    <span class="n">search_text</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span>
+    <span class="n">search_form</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">search_text</span><span class="p">:</span>
+        <span class="n">notes</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Note</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">search_text</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">notes</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span><span class="si">}</span><span class="s1"> search results found&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;No search results found&#39;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">notes</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">note_id</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">note</span> <span class="o">=</span> <span class="n">Note</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">note_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">get_id</span><span class="p">())</span><span class="o">.</span><span class="n">one_or_none</span><span class="p">()</span>
+            <span class="n">html_text</span> <span class="o">=</span>  <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">:</span>
+        <span class="n">posted_notes</span> <span class="o">=</span> <span class="n">posted_notes</span> <span class="o">+</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}]</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;note.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Note&#39;</span><span class="p">,</span> <span class="n">posted_notes</span><span class="o">=</span><span class="n">posted_notes</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="n">note</span><span class="p">,</span> <span class="n">html_text</span><span class="o">=</span><span class="n">html_text</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">search_form</span><span class="o">=</span><span class="n">SearchForm</span><span class="p">())</span>
 </code></pre></div>
         </details>
     </div>

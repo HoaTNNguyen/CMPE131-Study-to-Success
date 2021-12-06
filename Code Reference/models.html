@@ -330,15 +330,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#myapp.models.ShareNote" class="md-nav__link">
-    ShareNote
+  <a href="#myapp.models.SharedFlashCard" class="md-nav__link">
+    SharedFlashCard
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#myapp.models.SharedFlashCard" class="md-nav__link">
-    SharedFlashCard
+  <a href="#myapp.models.SharedNote" class="md-nav__link">
+    SharedNote
   </a>
   
 </li>
@@ -530,15 +530,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#myapp.models.ShareNote" class="md-nav__link">
-    ShareNote
+  <a href="#myapp.models.SharedFlashCard" class="md-nav__link">
+    SharedFlashCard
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#myapp.models.SharedFlashCard" class="md-nav__link">
-    SharedFlashCard
+  <a href="#myapp.models.SharedNote" class="md-nav__link">
+    SharedNote
   </a>
   
 </li>
@@ -602,6 +602,7 @@ More detailed sqlalchemy documentations can be found <a href="https://www.sqlalc
 
 
   <div class="doc doc-children">
+
 
 
 
@@ -854,89 +855,6 @@ Note            (<span title="sqlalchemy.orm.decl_api.Model">Model</span>)
 
 
 
-  </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="doc doc-object doc-class">
-
-
-
-<h2 id="myapp.models.ShareNote" class="doc doc-heading">
-        <code>
-ShareNote            (<span title="sqlalchemy.orm.decl_api.Model">Model</span>)
-        </code>
-
-
-
-</h2>
-
-    <div class="doc doc-contents ">
-
-      <p>Saves sharing information of notes</p>
-
-<p><strong>Attributes:</strong></p>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><code>id</code></td>
-        <td></td>
-        <td><p>Primary key</p></td>
-      </tr>
-      <tr>
-        <td><code>datetime</code></td>
-        <td></td>
-        <td><p>Datetime column, time of sharing</p></td>
-      </tr>
-      <tr>
-        <td><code>note_id</code></td>
-        <td></td>
-        <td><p>Integer column, id of note that is shared</p></td>
-      </tr>
-      <tr>
-        <td><code>owner_user_id</code></td>
-        <td></td>
-        <td><p>Integer column, id of person sharing the note</p></td>
-      </tr>
-      <tr>
-        <td><code>target_user_id</code></td>
-        <td></td>
-        <td><p>Integer column, id of person that was shared with the note</p></td>
-      </tr>
-  </tbody>
-</table>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   </div>
 
@@ -997,6 +915,91 @@ SharedFlashCard            (<span title="sqlalchemy.orm.decl_api.Model">Model</s
         <td><code>target_user_id</code></td>
         <td></td>
         <td><p>Integer column, id of person that was shared with the card</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="myapp.models.SharedNote" class="doc doc-heading">
+        <code>
+SharedNote            (<span title="sqlalchemy.orm.decl_api.Model">Model</span>)
+        </code>
+
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Saves sharing information of notes</p>
+
+<p><strong>Attributes:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>id</code></td>
+        <td></td>
+        <td><p>Primary key</p></td>
+      </tr>
+      <tr>
+        <td><code>datetime</code></td>
+        <td></td>
+        <td><p>Datetime column, time of sharing</p></td>
+      </tr>
+      <tr>
+        <td><code>note_id</code></td>
+        <td></td>
+        <td><p>Integer column, id of note that is shared</p></td>
+      </tr>
+      <tr>
+        <td><code>owner_user_id</code></td>
+        <td></td>
+        <td><p>Integer column, id of person sharing the note</p></td>
+      </tr>
+      <tr>
+        <td><code>target_user_id</code></td>
+        <td></td>
+        <td><p>Integer column, id of person that was shared with the note</p></td>
       </tr>
   </tbody>
 </table>
@@ -1151,6 +1154,11 @@ User            (<span title="flask_login.mixins.UserMixin">UserMixin</span>, <s
         <td><p>Hashed password of user</p></td>
       </tr>
       <tr>
+        <td><code>avatar</code></td>
+        <td></td>
+        <td><p>Avatar image blob of user, default will be chosen if not defined</p></td>
+      </tr>
+      <tr>
         <td><code>flashcards</code></td>
         <td></td>
         <td><p>Relationship that points to all flashcards of this user</p></td>
@@ -1171,6 +1179,8 @@ User            (<span title="flask_login.mixins.UserMixin">UserMixin</span>, <s
 
 
   <div class="doc doc-children">
+
+
 
 
 
